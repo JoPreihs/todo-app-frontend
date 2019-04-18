@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Nav from './components/Nav';
 import AddItem from "./components/AddItem";
+import ListItem from "./components/ListItem";
 
 class App extends Component {
   render() {
@@ -13,18 +14,8 @@ class App extends Component {
         <AddItem />
         <h4>Here is a list of things I need to do</h4>
         <ul>
-          <li>Do hoovering
-          <button>Done</button>
-            <button>Delete</button>
-          </li>
-          <li>Buy Easter eggs
-          <button>Done</button>
-            <button>Delete</button>
-          </li>
-          <li>Do washing
-          <button>Done</button>
-            <button>Delete</button>
-          </li>
+          <ListItem task="Do hoovering"/>
+          <ListItem task="Buy Easter Eggs"/>
         </ul>
       </div>
 
