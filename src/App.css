@@ -1,0 +1,18 @@
+body {
+    font-family: 'Sree Krushnadevaraya', serif;
+    color: darkslategray;
+}
+#subHeader {
+    margin: 35px auto 0 auto;
+    width: 80%;
+    font-family: 'EB Garamond', serif;
+    font-size: large;
+    text-align: center;
+    color: darkslategray;
+}
+#div3 {
+    margin: 50px 0 10px 10px;
+}
+#div4 {
+    margin: 10px 0 20px 10px;  
+}
