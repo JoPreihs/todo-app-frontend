@@ -16,3 +16,14 @@ body {
 #div4 {
     margin: 10px 0 20px 10px;  
 }
+#tasksRemaining {
+    margin: auto;
+    padding: 10px 10px 0px 10px;
+    width: 20%;
+    background-color: white;
+    font-family: 'EB Garamond', serif;
+    font-size: medium;
+    border: 2px solid gray;
+    border-style: dotted;
+    text-align: center;
+}

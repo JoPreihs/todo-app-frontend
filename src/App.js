@@ -20,20 +20,23 @@ class App extends Component {
           <h4>Never forget another task again with this simple, effective life organiser</h4>
         </div>
         <div id="div3">
-        <span className="getStarted">
+          <span className="getStarted">
             <h5>Let's get started!</h5>
           </span>
         </div>
         <div id="div4">
-        <h5>Just jot down your tasks and the date they need to be completed by below:</h5>
+          <h5>Just jot down your tasks and the date they need to be completed by below:</h5>
         </div>
         <AddItem />
-        <h4>Here is a list of things I need to do</h4>
+        <h4>Current list of tasks:</h4>
         <ul>
           {todoListItems.map(function (item) {
             return <ListItem task={item} />
           })}
         </ul>
+        <div id="tasksRemaining">
+          <h5>Tasks remaining: 1</h5>
+        </div>
       </div>
 
     );
