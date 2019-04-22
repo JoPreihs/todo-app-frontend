@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import "./App.css";
+/*import Notepad from "./components/Notepad";*/
 import Nav from "./components/Nav";
 import AddItem from "./components/AddItem";
 import ListItem from "./components/ListItem";
@@ -10,6 +11,9 @@ const todoListItems = [
   "Do shopping",
   "Do cooking"
 ];
+/*function Image() {
+return <img src={Notepad} alt="Notepad" />;
+}*/ 
 
 class App extends Component {
   render() {
