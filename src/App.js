@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import "./App.css";
-/*import Notepad from "./components/Notepad";*/
+/*import Notepad from "./Images/Notepad";*/
 import Nav from "./components/Nav";
 import AddItem from "./components/AddItem";
 import ListItem from "./components/ListItem";
