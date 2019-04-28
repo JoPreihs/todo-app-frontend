@@ -5,13 +5,17 @@ class ListItem extends Component {
     render() {
         return (
             <div id="currentList">
-
-                <li>
-                    {this.props.task}
-                    <button>Done</button>
-                    <button>Delete</button>
-
-                </li>
+                <div className="row">
+                    <div className="col-6">
+                        {this.props.task.task}
+                    </div>
+                    <div className="col-3">
+                        {this.props.task.completed ? <button>Complete? Now delete!</button> : <button>Delete</button>}
+                    </div>
+                    <div className="col-3">
+                        {this.props.task.completed ? null : <button>Delete</button>}
+                    </div>
+                </div>
             </div>
         );
     }

@@ -1,21 +1,29 @@
 import React, { Component } from 'react';
 import "./App.css";
-/*import Notepad from "./Images/Notepad";*/
 import Nav from "./components/Nav";
 import AddItem from "./components/AddItem";
 import ListItem from "./components/ListItem";
-
-const todoListItems = [
-  "Do hoovering",
-  "Buy Easter Eggs",
-  "Do shopping",
-  "Do cooking"
-];
-/*function Image() {
-return <img src={Notepad} alt="Notepad" />;
-}*/ 
+import TaskCounter from "./components/TaskCounter";
 
 class App extends Component {
+  state = {
+    tasks: [
+      { task: "Do hoovering", completed: true },
+      { task: "Do washing up", completed: true },
+      { task: "Do shopping", completed: true },
+      { task: "Do cooking", completed: true },
+    ],
+  }
+  addTask = (newTask) => {
+
+    const newTasks = this.state.tasks.slice();
+    const taskObject = { task: newTask, completed: false };
+    newTasks.push(taskObject);
+    this.setState({
+      tasks: newTasks
+    });
+  }
+
   render() {
     return (
       <div className="App">
@@ -33,17 +41,17 @@ class App extends Component {
             <h5>Just jot down your tasks and the date they need to be completed by below:</h5>
           </span>
         </div>
-        <AddItem />
+        <AddItem addTask={this.addTask} />
         <div id="currentListTitle">
           <h5>Current list of tasks:</h5>
+            {
+              this.state.tasks.map((item, i) => {
+                return <ListItem key={i} task={item} deleteItem={this.deleteItem} />
+              })
+            }
         </div>
-        <ul>
-          {todoListItems.map(function (item) {
-            return <ListItem task={item} />
-          })}
-        </ul>
         <div id="tasksRemaining">
-          <h5>Tasks remaining: 1</h5>
+          <TaskCounter count={this.state.tasks.length} />
         </div>
       </div>
 
