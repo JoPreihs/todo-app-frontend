@@ -11,7 +11,8 @@ handleChange = (event) => {
         text: event.target.value
     })
 }
-handleClick = () => {
+handleClick = (e) => {
+    e.preventDefault();
 const newTask = this.state.text;
 if (newTask.length > 0) {
     this.props.addTask(newTask);
