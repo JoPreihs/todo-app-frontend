@@ -4,25 +4,38 @@ import Nav from "./components/Nav";
 import AddItem from "./components/AddItem";
 import ListItem from "./components/ListItem";
 import TaskCounter from "./components/TaskCounter";
+import uuid from "uuid/v4";
 
 class App extends Component {
   state = {
     tasks: [
-      { task: "Do hoovering", completed: true },
-      { task: "Do washing up", completed: true },
-      { task: "Do shopping", completed: true },
-      { task: "Do cooking", completed: true },
+      { task: "Do hoovering", completed: true, id: uuid() },
+      { task: "Do washing up", completed: false, id: uuid() },
+      { task: "Do shopping", completed: true, id: uuid() },
+      { task: "Do cooking", completed: true, id: uuid() },
     ],
   }
   addTask = (newTask) => {
 
     const newTasks = this.state.tasks.slice();
-    const taskObject = { task: newTask, completed: false };
+    const taskObject = { task: newTask, completed: false, id: uuid() };
     newTasks.push(taskObject);
     this.setState({
       tasks: newTasks
     });
   }
+  deleteTask = id => {
+const filteredTasks = this.state.tasks.filter(item => {
+  if (item.id !== id) {
+    return true;
+  } else {
+    return false;
+  }
+}); 
+this.setState ({
+  tasks: filteredTasks
+});
+  };
 
   render() {
     return (
@@ -46,7 +59,11 @@ class App extends Component {
           <h5>Current list of tasks:</h5>
             {
               this.state.tasks.map((item, i) => {
-                return <ListItem key={i} task={item} deleteItem={this.deleteItem} />
+                return <ListItem 
+                deleteTask = {this.deleteTask} 
+                key={i} 
+                id ={item.id}
+                task={item}  />
               })
             }
         </div>

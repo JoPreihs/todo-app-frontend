@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import './ListItem.css';
 
 class ListItem extends Component {
+
+    handleDeleteClick = () => {
+        this.props.deleteTask(this.props.id);
+    };
     render() {
         return (
             <div id="currentList">
@@ -10,10 +14,11 @@ class ListItem extends Component {
                         {this.props.task.task}
                     </div>
                     <div className="col-3">
-                        {this.props.task.completed ? <button>Complete? Now delete!</button> : <button>Delete</button>}
+                        {this.props.task.completed ? <p>Completed</p> : <p>Not Completed</p>}
+                        
                     </div>
                     <div className="col-3">
-                        {this.props.task.completed ? null : <button>Delete</button>}
+                        <button onClick = {this.handleDeleteClick} >Delete</button>
                     </div>
                 </div>
             </div>
