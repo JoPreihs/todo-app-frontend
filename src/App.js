@@ -11,7 +11,7 @@ class App extends Component {
     tasks: [
       { task: "Do hoovering", completed: true, id: uuid() },
       { task: "Do washing up", completed: false, id: uuid() },
-      { task: "Do shopping", completed: true, id: uuid() },
+      { task: "Do shopping", completed: false, id: uuid() },
       { task: "Do cooking", completed: true, id: uuid() },
     ],
   }
@@ -37,6 +37,18 @@ this.setState ({
 });
   };
 
+  markTaskCompleted = id => {
+    const updatedTasks = this.state.tasks.map((item) => {
+      if (item.id === id) {
+        item.completed = true;
+      }
+return item;
+    });
+    this.setState ({
+      tasks: updatedTasks
+    });
+  };
+  
   render() {
     return (
       <div className="App">
@@ -61,6 +73,7 @@ this.setState ({
               this.state.tasks.map((item, i) => {
                 return <ListItem 
                 deleteTask = {this.deleteTask} 
+                markTaskCompleted= {this.markTaskCompleted}
                 key={i} 
                 id ={item.id}
                 task={item}  />
