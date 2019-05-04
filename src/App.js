@@ -9,7 +9,7 @@ import uuid from "uuid/v4";
 class App extends Component {
   state = {
     tasks: [
-      { task: "Do hoovering", completed: true, id: uuid() },
+      { task: "Do hoovering", deadline: "date", completed: true, id: uuid() },
       { task: "Do washing up", completed: false, id: uuid() },
       { task: "Do shopping", completed: false, id: uuid() },
       { task: "Do cooking", completed: true, id: uuid() },
@@ -24,6 +24,15 @@ class App extends Component {
       tasks: newTasks
     });
   }
+addDeadline = (dueDate) => {
+  const dueDates = this.state.tasks.deadline();
+  const deadlineObject = {task: dueDates, deadline: "date", completed: false, id: uuid() };
+  dueDates.push(deadlineObject);
+  this.setState({
+    tasks: dueDates
+  });
+}
+
   deleteTask = id => {
 const filteredTasks = this.state.tasks.filter(item => {
   if (item.id !== id) {
@@ -76,7 +85,8 @@ return item;
                 markTaskCompleted= {this.markTaskCompleted}
                 key={i} 
                 id ={item.id}
-                task={item}  />
+                task={item} 
+                deadline={"date"}/>
               })
             }
         </div>
