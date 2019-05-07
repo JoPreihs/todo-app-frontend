@@ -1,5 +1,8 @@
 body {
-    /*background-image: url(./images/Notepad.jpg);*/
+    background-image: url(./Images/Notepad.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     font-family: 'Sree Krushnadevaraya', serif;
     color: darkslategray;
 }
