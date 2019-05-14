@@ -9,29 +9,21 @@ import uuid from "uuid/v4";
 class App extends Component {
   state = {
     tasks: [
-      { task: "Do hoovering", deadline: "date", completed: true, id: uuid() },
-      { task: "Do washing up", completed: false, id: uuid() },
-      { task: "Do shopping", completed: false, id: uuid() },
-      { task: "Do cooking", completed: true, id: uuid() },
+      { task: "Do hoovering", date: "07-06-2019", completed: true, id: uuid() },
+      { task: "Do washing up", date: "03-07-2019", completed: false, id: uuid() },
+      { task: "Do shopping", date: "09-07-2019", completed: false, id: uuid() },
+      { task: "Do cooking", date: "08-08-2019", completed: true, id: uuid() },
     ],
   }
-  addTask = (newTask) => {
+  addTask = (newTask, date) => {
 
     const newTasks = this.state.tasks.slice();
-    const taskObject = { task: newTask, completed: false, id: uuid() };
+    const taskObject = { task: newTask, date: date, completed: false, id: uuid() };
     newTasks.push(taskObject);
     this.setState({
       tasks: newTasks
     });
   }
-addDeadline = (dueDate) => {
-  const dueDates = this.state.tasks.deadline();
-  const deadlineObject = {task: dueDates, deadline: "date", completed: false, id: uuid() };
-  dueDates.push(deadlineObject);
-  this.setState({
-    tasks: dueDates
-  });
-}
 
   deleteTask = id => {
 const filteredTasks = this.state.tasks.filter(item => {
@@ -86,7 +78,7 @@ return item;
                 key={i} 
                 id ={item.id}
                 task={item} 
-                deadline={"date"}/>
+                date={item.date}/>
               })
             }
         </div>

@@ -1,5 +1,13 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## About the App
+
+This app is designed to help manage life. Many of us find our day-to-day lives are filled with 'things to do' - too many things to do. This app can help you keep track of your tasks, manage deadlines and delete the tasks you have completed. All your 'things to do' - all in one place.
+
+## Technologies
+
+Built with React, utilising HTML, CSS, Bootstrap and JavaScript, combined to enhance the users' experience.
+
 ## Available Scripts
 
 In the project directory, you can run:
