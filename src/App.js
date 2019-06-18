@@ -5,16 +5,29 @@ import AddItem from "./components/AddItem";
 import ListItem from "./components/ListItem";
 import TaskCounter from "./components/TaskCounter";
 import uuid from "uuid/v4";
+import axios from 'axios';
 
 class App extends Component {
   state = {
     tasks: [
-      { task: "Do hoovering", date: "07-06-2019", completed: true, id: uuid() },
-      { task: "Do washing up", date: "03-07-2019", completed: false, id: uuid() },
-      { task: "Do shopping", date: "09-07-2019", completed: false, id: uuid() },
-      { task: "Do cooking", date: "08-08-2019", completed: true, id: uuid() },
+      //{ task: "Do hoovering", date: "07-06-2019", completed: true, id: uuid() },
+      //{ task: "Do washing up", date: "03-07-2019", completed: false, id: uuid() },
+      //{ task: "Do shopping", date: "09-07-2019", completed: false, id: uuid() },
+      //{ task: "Do cooking", date: "08-08-2019", completed: true, id: uuid() },
     ],
   }
+
+componentWillMount() {
+  axios.get("https://krcvw29d8g.execute-api.eu-west-2.amazonaws.com/dev/tasks")
+    .then(response => {
+      this.setState({tasks: response.data.tasks});
+    })
+    .catch(error => {
+      console.log(error);
+    });
+}
+
+
   addTask = (newTask, date) => {
 
     const newTasks = this.state.tasks.slice();
